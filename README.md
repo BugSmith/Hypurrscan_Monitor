@@ -114,7 +114,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you have any questions or suggestions, please contact us through:
 
 - GitHub Issues: [https://github.com/BugSmith/Hypurrscan_Monitor/issues](https://github.com/BugSmith/Hypurrscan_Monitor/issues)
-- Email: your-email@example.com
 
 ## 🙏 Acknowledgments
 

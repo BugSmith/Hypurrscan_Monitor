@@ -137,7 +137,6 @@ docker-compose up -d
 如有任何问题或建议，请通过以下方式联系我们：
 
 - GitHub Issues: [https://github.com/BugSmith/Hypurrscan_Monitor/issues](https://github.com/BugSmith/Hypurrscan_Monitor/issues)
-- 电子邮件: your-email@example.com
 
 ## 🙏 致谢
 
