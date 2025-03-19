@@ -81,11 +81,7 @@ class HyperscanAPI:
                     price_text = price_element.text.strip().replace('$', '').replace(',', '')
                     return float(price_text)
             
-            # 如果仍然无法获取价格，返回默认值
-            logger.warning(f"无法获取{token_symbol}价格，使用默认值")
-            if token_symbol == 'MELANIA':
-                return 0.72287
-            return 0.0
+
             
         except Exception as e:
             logger.error(f"获取代币价格时出错: {str(e)}")
@@ -129,9 +125,6 @@ class HyperscanAPI:
                             leverage = 5  # 默认值
                             quantity = 0
                             
-                            # 获取实时价格
-                            current_price = self.get_token_price(token)
-                            
                             positions.append({
                                 'token': token,
                                 'direction': direction,
@@ -140,8 +133,6 @@ class HyperscanAPI:
                                 'quantity': quantity,
                                 'token_quantity': f'{quantity} {token}',
                                 'entry_price': 0.0,  # 需要从网页解析
-                                'current_price': current_price,
-                                'pnl': 0.0,  # 需要从网页解析
                                 'funding': 0.0,  # 需要从网页解析
                                 'liquidation_price': 0.0,  # 需要从网页解析
                                 'updated_at': int(time.time())
@@ -158,24 +149,17 @@ class HyperscanAPI:
                 # 获取当前时间戳
                 current_timestamp = int(time.time())
                 
-                # 获取实时价格
-                current_price = self.get_token_price('MELANIA')
-                
-                # 使用实时价格计算PnL
                 quantity = 3863043.7
                 entry_price = 0.71745
-                pnl = quantity * (current_price - entry_price)
                 
                 return [{
                     'token': 'MELANIA',
                     'direction': 'LONG',
                     'leverage': 5,
-                    'value': quantity * current_price,
+                    'value': quantity * entry_price,
                     'quantity': quantity,
                     'token_quantity': f'{quantity} MELANIA',
                     'entry_price': entry_price,
-                    'current_price': current_price,
-                    'pnl': pnl,
                     'funding': 315.71 + (current_timestamp % 10) / 10.0,
                     'liquidation_price': 0.65333,
                     'updated_at': current_timestamp

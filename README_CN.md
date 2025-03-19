@@ -3,7 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-
+默认监控0xf3F496C9486BE5924a93D67e98298733Bb47057c这个内幕地址
 一个用于监控hypurrscan.io加密钱包地址持仓情况的Telegram机器人，支持查询持仓和新开仓报警功能。实时监测地址的永续合约持仓变化，及时通知用户。
 
 ## 🚀 功能

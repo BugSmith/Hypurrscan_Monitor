@@ -173,8 +173,6 @@ class HyperMonitorBot:
         token = position.get('token', 'Unknown')
         direction = position.get('direction', 'Unknown')
         value = position.get('value', 0)
-        pnl = position.get('pnl', 0)
-        current_price = position.get('current_price', 0)
         
         emoji = "📈" if change_type == 'increase' else "📉"
         change_text = "增加" if change_type == 'increase' else "减少"
@@ -185,8 +183,6 @@ class HyperMonitorBot:
         message += f"📈 <b>方向</b>: {'做多' if direction == 'LONG' else '做空'}\n"
         message += f"💰 <b>当前价值</b>: ${value:,.2f}\n"
         message += f"🔄 <b>变化</b>: {change_text} {change_percent:.2f}%\n"
-        message += f"💸 <b>PnL</b>: ${pnl:,.2f}\n"
-        message += f"🏷️ <b>当前价格</b>: ${current_price:,.4f}\n"
         
         try:
             self.updater.bot.send_message(
@@ -305,8 +301,6 @@ class HyperMonitorBot:
                 value = position.get('value', 0)
                 leverage = position.get('leverage', 0)
                 entry_price = position.get('entry_price', 0)
-                current_price = position.get('current_price', 0)
-                pnl = position.get('pnl', 0)
                 funding = position.get('funding', 0)
                 liquidation_price = position.get('liquidation_price', 0)
                 
@@ -314,8 +308,6 @@ class HyperMonitorBot:
                 message += f"   💰 价值: ${value:,.2f}\n"
                 message += f"   ⚡ 杠杆: {leverage}x\n"
                 message += f"   🏁 入场价: ${entry_price:,.6f}\n"
-                message += f"   🏷️ 当前价: ${current_price:,.6f}\n"
-                message += f"   💸 PnL: ${pnl:,.2f}\n"
                 message += f"   💵 资金费: ${funding:,.2f}\n"
                 message += f"   ⚠️ 清算价: ${liquidation_price:,.6f}\n\n"
         else:

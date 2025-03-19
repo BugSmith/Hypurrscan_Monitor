@@ -3,7 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-
+Default monitoring insider address: 0xf3F496C9486BE5924a93D67e98298733Bb47057c
 A Telegram bot for monitoring cryptocurrency wallet positions on HyperScan.io. It supports position querying and new position alerts, tracking real-time changes in perpetual contract positions and notifying users promptly.
 
 ## 🚀 Features
