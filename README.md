@@ -1,121 +1,125 @@
-# Hyper Monitor（超级监控）
+# hypurrscan.io Monitor
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-一个用于监控HyperScan加密钱包地址持仓情况的Telegram机器人，支持查询持仓和新开仓报警功能。实时监测地址的永续合约持仓变化，及时通知用户。
+A Telegram bot for monitoring cryptocurrency wallet positions on HyperScan.io. It supports position querying and new position alerts, tracking real-time changes in perpetual contract positions and notifying users promptly.
 
-## 🚀 功能
+## 🚀 Features
 
-- 📊 **实时查询**：随时查询指定地址的永续合约持仓情况
-- 🔄 **数据更新**：每2分钟自动更新数据，确保信息实时性
-- 🔔 **持仓监控**：监控地址的持仓变化，包括新开仓和现有持仓的重大变化
-- 🚨 **智能提醒**：新开仓位和价值变化超过10%时自动发送通知
-- 📋 **多地址管理**：支持监控多个钱包地址
-- 🔒 **用户授权**：只有授权用户才能使用机器人，保证数据安全
+- 📊 **Real-time Queries**: Check perpetual contract positions of specified addresses at any time
+- 🔄 **Data Updates**: Automatic data refresh every 2 minutes for up-to-date information
+- 🔔 **Position Monitoring**: Track changes in address positions, including new positions and significant changes to existing ones
+- 🚨 **Smart Alerts**: Automatic notifications for new positions and value changes exceeding 10%
+- 📋 **Multi-address Management**: Support for monitoring multiple wallet addresses
+- 🔒 **User Authorization**: Only authorized users can use the bot, ensuring data security
 
-## 📸 效果展示
+## 📸 Demo
 
-![机器人效果展示](https://your-image-host.com/demo.png)
+![Bot Demo](https://your-image-host.com/demo.png)
 
-## 🛠️ 安装与配置
+## 🛠️ Installation & Setup
 
-### 前提条件
+### Prerequisites
 
 - Python 3.8+
-- 已创建的Telegram机器人令牌 (通过 [BotFather](https://t.me/botfather) 获取)
-- 用于访问Telegram API的代理服务
+- A Telegram bot token (obtain from [BotFather](https://t.me/botfather))
+- Proxy service for accessing Telegram API (if required in your region)
 
-### 安装步骤
+### Installation Steps
 
-1. 克隆此仓库：
+1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/hyper-monitor.git
-cd hyper-monitor
+git clone https://github.com/BugSmith/Hypurrscan_Monitor.git
+cd Hypurrscan_Monitor
 ```
 
-2. 安装依赖：
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. 配置环境变量：
+3. Configure environment variables:
 
-创建`.env`文件并添加以下内容：
+Create a `.env` file with the following content:
 
 ```
-# Telegram机器人令牌（从BotFather获取）
+# Telegram bot token (from BotFather)
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 
-# 授权用户ID（多个ID用逗号分隔）
+# Authorized user IDs (comma-separated)
 AUTHORIZED_USERS=12345678,87654321
 ```
 
-4. 调整代理设置：
+4. Adjust proxy settings:
 
-如果在中国或其他需要使用代理访问Telegram的地区，请在`bot.py`中配置正确的代理地址：
+If you're in a region that requires a proxy to access Telegram, configure the correct proxy address in `bot.py`:
 
 ```python
-proxy_url = 'http://127.0.0.1:7890'  # 改为您的代理地址
+proxy_url = 'http://127.0.0.1:7890'  # Change to your proxy address
 ```
 
-## 📝 使用方法
+## 📝 Usage
 
-1. 启动机器人：
+1. Start the bot:
 
 ```bash
 python main.py
 ```
 
-2. 在Telegram中与机器人互动，使用以下命令：
+2. Interact with the bot in Telegram using these commands:
 
-- `/start` - 初始化机器人
-- `/help` - 显示帮助信息
-- `/query [地址]` - 查询指定地址的持仓情况 (不指定地址则查询默认地址)
-- `/monitor [地址]` - 开始监控指定地址 (不指定地址则监控默认地址)
-- `/stop_monitor [地址]` - 停止监控指定地址
-- `/add_address` - 添加新的监控地址
-- `/status` - 查看当前监控状态
+- `/start` - Initialize the bot
+- `/help` - Display help information
+- `/query [address]` - Query positions for a specific address (uses default address if none specified)
+- `/monitor [address]` - Start monitoring a specific address (uses default address if none specified)
+- `/stop_monitor [address]` - Stop monitoring a specific address
+- `/add_address` - Add a new address to monitor
+- `/status` - Check current monitoring status
 
-## ⚙️ 自定义配置
+## ⚙️ Custom Configuration
 
-在`config.py`文件中可以修改以下配置：
+You can modify the following settings in the `config.py` file:
 
-- `DEFAULT_ADDRESS` - 默认监控的钱包地址
-- `MONITOR_INTERVAL` - 监控间隔 (秒)
-- `MIN_POSITION_VALUE` - 开仓警报最小价值阈值 (美元)
+- `DEFAULT_ADDRESS` - Default wallet address to monitor
+- `MONITOR_INTERVAL` - Monitoring interval in seconds
+- `MIN_POSITION_VALUE` - Minimum position value threshold for alerts (in USD)
 
-## 🔧 技术实现
+## 🔧 Technical Implementation
 
-- **接口数据获取**：使用HyperScan API获取持仓数据
-- **异步处理**：采用异步IO处理监控任务，提高性能
-- **持仓变化检测**：智能算法检测新开仓和持仓价值变化
-- **数据模拟**：根据时间戳模拟数据更新，实现动态价格变化
+- **API Data Retrieval**: Uses HyperScan API to obtain position data
+- **Asynchronous Processing**: Employs async I/O for monitoring tasks to improve performance
+- **Position Change Detection**: Smart algorithms to detect new positions and significant changes in position value
+- **Data Simulation**: Simulates data updates based on timestamps for dynamic price changes
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交问题和拉取请求！如果您想为项目做出贡献，请遵循以下步骤：
+Contributions are welcome! Please follow these steps to contribute:
 
-1. Fork 这个仓库
-2. 创建您的功能分支 (`git checkout -b feature/amazing-feature`)
-3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开一个 Pull Request
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📜 许可证
+## 📜 License
 
-本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📬 联系方式
+## 📬 Contact
 
-如有任何问题或建议，请通过以下方式联系我：
+If you have any questions or suggestions, please contact us through:
 
-- GitHub Issues: [https://github.com/your-username/hyper-monitor/issues](https://github.com/your-username/hyper-monitor/issues)
-- 电子邮件: your-email@example.com
+- GitHub Issues: [https://github.com/BugSmith/Hypurrscan_Monitor/issues](https://github.com/BugSmith/Hypurrscan_Monitor/issues)
+- Email: your-email@example.com
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - Telegram机器人框架
-- [HyperScan](https://hypurrscan.io) - 提供加密货币数据的API 
+- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - Telegram bot framework
+- [HyperScan](https://hypurrscan.io) - API providing cryptocurrency data
+
+---
+
+For Chinese documentation, please see [README_CN.md](README_CN.md) 

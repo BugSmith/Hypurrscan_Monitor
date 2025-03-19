@@ -7,14 +7,14 @@ with open("requirements.txt", "r", encoding="utf-8") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="hyper-monitor",
+    name="hypurrscan-monitor",
     version="0.1.0",
-    author="Your Name",
+    author="BugSmith",
     author_email="your.email@example.com",
-    description="一个监控加密货币交易所仓位变化的Telegram机器人",
+    description="一个监控hypurrscan.io交易所仓位变化的Telegram机器人",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/hyper-monitor",
+    url="https://github.com/BugSmith/Hypurrscan_Monitor",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -31,7 +31,7 @@ setup(
     install_requires=requirements,
     entry_points={
         "console_scripts": [
-            "hyper-monitor=main:main",
+            "hypurrscan-monitor=main:main",
         ],
     },
 ) 

@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  hyper-monitor:
+  hypurrscan-monitor:
     build: .
-    container_name: hyper-monitor
+    container_name: hypurrscan-monitor
     restart: unless-stopped
     volumes:
       - ./logs:/app/logs
