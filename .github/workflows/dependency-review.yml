@@ -1,0 +1,19 @@
+name: "依赖审查"
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "检出代码库"
+        uses: actions/checkout@v3
+      - name: "依赖审查"
+        uses: actions/dependency-review-action@v2
+        with:
+          fail-on-severity: high 

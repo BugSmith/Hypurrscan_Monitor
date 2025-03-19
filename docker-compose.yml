@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  hyper-monitor:
+    build: .
+    container_name: hyper-monitor
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - AUTHORIZED_USERS=${AUTHORIZED_USERS}
+    # 使用env_file也是一个选项
+    # env_file:
+    #   - .env 
