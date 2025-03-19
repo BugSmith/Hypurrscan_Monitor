@@ -1,4 +1,5 @@
 # hypurrscan.io 持仓监控
+[![en](https://img.shields.io/badge/lang-English-blue.svg)](README.md) [![cn](https://img.shields.io/badge/语言-中文-red.svg)](README_CN.md)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
